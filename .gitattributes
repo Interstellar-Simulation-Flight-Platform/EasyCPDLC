@@ -1,0 +1,30 @@
+# 默认：自动处理文本文件的换行符
+* text=auto
+
+# 源码与配置（LF 入库，检出按平台）
+*.cs        text diff=csharp
+*.csproj    text
+*.sln       text
+*.config    text
+*.resx      text
+*.settings  text
+*.md        text
+*.json      text
+*.gitignore text
+*.gitattributes text
+LICENSE     text
+
+# 图片 / 音频 / 字体：二进制，不做任何转换
+*.png       binary
+*.jpg       binary
+*.gif       binary
+*.ico       binary
+*.wav       binary
+*.ttf       binary
+*.otf       binary
+
+# 构建产物与归档：二进制
+*.zip       binary
+*.exe       binary
+*.dll       binary
+*.pdb       binary

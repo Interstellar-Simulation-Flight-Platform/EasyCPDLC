@@ -1,0 +1,44 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+out/
+
+# Visual Studio cache/options
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.idea/
+*.sln.iml
+.vscode/
+*.code-workspace
+
+# Windows build junk
+*.obj
+*.pdb
+*.ilk
+*.cache
+*.log
+*.tlog
+*.binlog
+
+# Publish output (single-file exe)
+publish/
+*.zip
+
+# User settings cache (runtime)
+*.config.user
+
+# OS junk
+Thumbs.db
+desktop.ini
+~$*
+EasyCPDLCLog.txt
