@@ -38,7 +38,10 @@ jobs:
       - name: Verify tag matches assembly version
         run: |
           $tag = "${{ steps.tag.outputs.value }}".TrimStart("v")
-          $asm = (Select-String -Path "EasyCPDLC\Properties\AssemblyInfo.cs" -Pattern 'AssemblyVersion\("([^"]+)"\)').Matches[0].Groups[1].Value
+          $match = Select-String -Path "EasyCPDLC\Properties\AssemblyInfo.cs" -Pattern '^\[assembly:\s*AssemblyVersion\("([^"]+)"\)\]'
+          if (-not $match) { Write-Error "AssemblyVersion not found in AssemblyInfo.cs" }
+          $asm = $match.Matches[0].Groups[1].Value
+          if ($asm -like '*`*') { Write-Error "AssemblyVersion '$asm' contains a wildcard. Use a fixed version like '0.2.0'." }
           if ($tag -ne $asm) {
             Write-Error "Tag version '$tag' does not match AssemblyVersion '$asm'. Bump AssemblyInfo.cs and re-tag."
           }
